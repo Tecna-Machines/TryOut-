@@ -9,6 +9,8 @@ namespace Infrastructure.Persistence
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             string dbPath = Path.Combine(Directory.GetCurrentDirectory(), "Db", "TryOut.db");
+
+            dbPath = "D:\\TryOut\\Infrastructure\\Db\\TryOut.db";
             options.UseSqlite($"Data Source={dbPath}");
         }
 

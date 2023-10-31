@@ -14,5 +14,6 @@ namespace Applicacion.Interfaces
         Task<Maquina> DeleteMaquina(String NumMaquina);
         Task<Maquina> UpdateMaquina(Maquina Maquina);
         Task<IEnumerable<Maquina>> GetMaquinas();
+        Task<bool> Save();
     }
 }
