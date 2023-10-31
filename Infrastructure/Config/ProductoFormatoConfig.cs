@@ -1,11 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Config
 {
@@ -13,7 +8,7 @@ namespace Infrastructure.Config
     {
         public void Configure(EntityTypeBuilder<ProductoFormato> builder)
         {
-            builder.HasKey(pf => new{ pf.NombreProducto,pf.DescripcionFormato});
+            builder.HasKey(pf => new { pf.NombreProducto, pf.DescripcionFormato });
 
             builder.HasOne(pf => pf.Producto)
                 .WithMany(p => p.ProductosFormatos)
