@@ -21,11 +21,16 @@ namespace Views
         {
             Form maquinaForm = new MaquinaForm(_service);
             maquinaForm.Show();
-            
+
             this.Hide();
         }
 
         private void clickBtnIniciarPrueba(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imgRobot_Click(object sender, EventArgs e)
         {
 
         }

@@ -25,7 +25,7 @@ namespace Views
             .AddTransient<IMaquinaRepository, MaquinaRepository>()
             .AddTransient<IMaquinaService, MaquinaService>()
             .AddTransient<Home>() // Registra el formulario Home
-        .BuildServiceProvider();
+            .BuildServiceProvider();
 
 
             var form = services.GetRequiredService<Home>();
