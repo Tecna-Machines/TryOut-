@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            btnCrear = new Button();
+            btnPrueba = new Button();
+            SuspendLayout();
+            // 
+            // btnCrear
+            // 
+            btnCrear.Location = new Point(70, 209);
+            btnCrear.Name = "btnCrear";
+            btnCrear.Size = new Size(137, 50);
+            btnCrear.TabIndex = 0;
+            btnCrear.Text = "CREAR MAQUINA";
+            btnCrear.UseVisualStyleBackColor = true;
+            btnCrear.Click += clickBtnCrearMaquina;
+            // 
+            // btnPrueba
+            // 
+            btnPrueba.Location = new Point(248, 209);
+            btnPrueba.Name = "btnPrueba";
+            btnPrueba.Size = new Size(137, 50);
+            btnPrueba.TabIndex = 1;
+            btnPrueba.Text = "INICIAR PRUEBA";
+            btnPrueba.UseVisualStyleBackColor = true;
+            btnPrueba.Click += clickBtnIniciarPrueba;
+            // 
+            // Home
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnPrueba);
+            Controls.Add(btnCrear);
+            Name = "Home";
+            Text = "Form1";
+            Load += Home_Load;
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnCrear;
+        private Button btnPrueba;
     }
 }

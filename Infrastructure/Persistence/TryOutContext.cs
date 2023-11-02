@@ -14,6 +14,10 @@ namespace Infrastructure.Persistence
             options.UseSqlite($"Data Source={dbPath}");
         }
 
+        public TryOutContext(DbContextOptions<TryOutContext> options) : base(options)
+        {
+        }
+
 
         public DbSet<Formato> Formatos { get; set; }
         public DbSet<Maquina> Maquinas { get; set; }

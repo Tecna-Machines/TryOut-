@@ -1,4 +1,4 @@
-﻿using Applicacion.Interfaces;
+﻿using Applicacion.Interfaces.IRepositories;
 using Domain.Entities;
 using Infrastructure.Persistence;
 using System.Data.Entity;
