@@ -15,7 +15,7 @@ namespace Infrastructure.Repositories
             this.context = context;
         }
 
-        public async Task<Maquina> DeleteMaquina(string NumMaquina)
+        public async Task<Maquina?> DeleteMaquina(string NumMaquina)
         {
             var foundMachine = await context.Maquinas.FindAsync(NumMaquina);
 
@@ -27,9 +27,9 @@ namespace Infrastructure.Repositories
             throw new KeyNotFoundException();
         }
 
-        public async Task<Maquina> GetMaquinaByNum(string NumMaquina)
+        public async Task<Maquina?> GetMaquinaByNum(string NumMaquina)
         {
-            return await context.Maquinas.FirstOrDefaultAsync(m => m.NumMaquina == NumMaquina);
+            return await context.Maquinas.FindAsync(NumMaquina);
         }
 
         public async Task<IEnumerable<Maquina>> GetMaquinas()
@@ -43,7 +43,7 @@ namespace Infrastructure.Repositories
             return Maquina;
         }
 
-        public async Task<Maquina> UpdateMaquina(Maquina Maquina)
+        public async Task<Maquina?> UpdateMaquina(Maquina Maquina)
         {
             context.Entry(Maquina).State = (Microsoft.EntityFrameworkCore.EntityState)EntityState.Modified;
             await context.SaveChangesAsync();

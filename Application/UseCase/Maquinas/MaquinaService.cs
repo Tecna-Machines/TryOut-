@@ -19,18 +19,34 @@ namespace Applicacion.UseCase.Maquinas
             _repository = repository;
         }
 
-        public MaquinaDTO CrearNuevaMaquina(MaquinaDTO maquina)
+        public async Task<MaquinaDTO> CrearNuevaMaquina(MaquinaDTO maquina)
         {
             var nuevaMaquina = new Maquina
             {
                 NumMaquina = maquina.NumMaquina,
                 Nombre = maquina.Nombre,
-                Descripcion = maquina.Descripcion
+                Descripcion = maquina.Descripcion,
+                FechaCreacion = DateTime.Now
             };
 
-            _repository.InsertMaquina(nuevaMaquina);
-            _repository.Save();
+            await _repository.InsertMaquina(nuevaMaquina);
+            await _repository.Save();
             return maquina;
+        }
+
+        public async Task<MaquinaDTO?> ConsultarMaquinaById(string NumMaquina)
+        {
+            var found =  await _repository.GetMaquinaByNum(NumMaquina);
+
+            if(found != null)
+            {
+                return new MaquinaDTO
+                {
+                    NumMaquina = found.NumMaquina,
+                };
+            }
+
+            return null;
         }
     }
 }

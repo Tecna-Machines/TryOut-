@@ -1,4 +1,6 @@
 using Applicacion.Interfaces.IServices;
+using Views.Screens;
+using Views.Utilities;
 
 namespace Views
 {
@@ -19,7 +21,7 @@ namespace Views
 
         private void clickBtnCrearMaquina(object sender, EventArgs e)
         {
-            Form maquinaForm = new MaquinaForm(_service);
+            Form maquinaForm = new MaquinaForm(_service,this);
             maquinaForm.Show();
 
             this.Hide();
@@ -27,7 +29,9 @@ namespace Views
 
         private void clickBtnIniciarPrueba(object sender, EventArgs e)
         {
-
+            Form pruebaForm = new PruebaForm();
+            pruebaForm.Show();
+            this.Hide();
         }
 
         private void imgRobot_Click(object sender, EventArgs e)

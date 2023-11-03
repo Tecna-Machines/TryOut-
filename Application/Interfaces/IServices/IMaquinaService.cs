@@ -9,6 +9,7 @@ namespace Applicacion.Interfaces.IServices
 {
     public interface IMaquinaService
     {
-        public MaquinaDTO CrearNuevaMaquina(MaquinaDTO maquina);
+        public Task<MaquinaDTO> CrearNuevaMaquina(MaquinaDTO maquina);
+        public Task<MaquinaDTO?> ConsultarMaquinaById(string NumMaquin);
     }
 }
