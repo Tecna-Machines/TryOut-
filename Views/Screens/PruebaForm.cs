@@ -1,5 +1,6 @@
 ﻿using Applicacion.DTO;
 using Applicacion.Interfaces.IServices;
+using Views.pop_up;
 using Views.Utilities;
 
 namespace Views.Screens
@@ -12,7 +13,7 @@ namespace Views.Screens
         {
             InitializeComponent();
             FormUtility.setBasicStyles(this);
-            ButtonUtility.ConfigurationButtons(this.btnListo, this.btnVolver);
+            ButtonUtility.ConfigurationButtons(this.btnListo, this.btnVolver,this.btnAgregarFormato);
             _service = service;
 
             this.addOptionListBox();
@@ -40,6 +41,12 @@ namespace Views.Screens
             {
                 HomeForm.Show();
             }
+        }
+
+        private void clickAgregarFormato(object sender, EventArgs e)
+        {
+            CreateFormatoForm createFormatoForm = new CreateFormatoForm();
+            createFormatoForm.Show();
         }
     }
 }

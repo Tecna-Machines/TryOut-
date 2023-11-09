@@ -40,12 +40,13 @@
             observaciones = new Label();
             btnVolver = new Button();
             btnListo = new Button();
+            btnAgregarFormato = new Button();
             SuspendLayout();
             // 
             // textBox1
             // 
             textBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(528, 209);
+            textBox1.Location = new Point(466, 185);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(196, 26);
             textBox1.TabIndex = 0;
@@ -53,7 +54,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(368, 217);
+            label1.Location = new Point(307, 193);
             label1.Name = "label1";
             label1.Size = new Size(145, 13);
             label1.TabIndex = 1;
@@ -62,7 +63,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(43, 100);
+            label2.Location = new Point(39, 97);
             label2.Name = "label2";
             label2.Size = new Size(71, 13);
             label2.TabIndex = 3;
@@ -70,16 +71,17 @@
             // 
             // optionsMachineSelect
             // 
+            optionsMachineSelect.FlatStyle = FlatStyle.System;
             optionsMachineSelect.FormattingEnabled = true;
-            optionsMachineSelect.Location = new Point(120, 97);
+            optionsMachineSelect.Location = new Point(118, 97);
             optionsMachineSelect.Name = "optionsMachineSelect";
-            optionsMachineSelect.Size = new Size(253, 21);
+            optionsMachineSelect.Size = new Size(196, 21);
             optionsMachineSelect.TabIndex = 4;
             // 
             // selectProduct
             // 
             selectProduct.FormattingEnabled = true;
-            selectProduct.Location = new Point(471, 97);
+            selectProduct.Location = new Point(411, 92);
             selectProduct.Name = "selectProduct";
             selectProduct.Size = new Size(253, 21);
             selectProduct.TabIndex = 5;
@@ -87,7 +89,7 @@
             // labelProduct
             // 
             labelProduct.AutoSize = true;
-            labelProduct.Location = new Point(397, 100);
+            labelProduct.Location = new Point(327, 95);
             labelProduct.Name = "labelProduct";
             labelProduct.Size = new Size(68, 13);
             labelProduct.TabIndex = 6;
@@ -96,7 +98,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(473, 140);
+            comboBox1.Location = new Point(411, 137);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(251, 21);
             comboBox1.TabIndex = 7;
@@ -104,7 +106,7 @@
             // selectFormato
             // 
             selectFormato.AutoSize = true;
-            selectFormato.Location = new Point(405, 143);
+            selectFormato.Location = new Point(335, 143);
             selectFormato.Name = "selectFormato";
             selectFormato.Size = new Size(60, 13);
             selectFormato.TabIndex = 8;
@@ -115,13 +117,13 @@
             textBox2.Location = new Point(122, 137);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(251, 39);
+            textBox2.Size = new Size(194, 39);
             textBox2.TabIndex = 9;
             // 
             // observaciones
             // 
             observaciones.AutoSize = true;
-            observaciones.Location = new Point(18, 143);
+            observaciones.Location = new Point(12, 143);
             observaciones.Name = "observaciones";
             observaciones.Size = new Size(98, 13);
             observaciones.TabIndex = 10;
@@ -146,11 +148,22 @@
             btnListo.Text = "LISTO PARA LA PRUEBA";
             btnListo.UseVisualStyleBackColor = true;
             // 
+            // btnAgregarFormato
+            // 
+            btnAgregarFormato.Location = new Point(670, 91);
+            btnAgregarFormato.Name = "btnAgregarFormato";
+            btnAgregarFormato.Size = new Size(118, 23);
+            btnAgregarFormato.TabIndex = 13;
+            btnAgregarFormato.Text = "agregar formato";
+            btnAgregarFormato.UseVisualStyleBackColor = true;
+            btnAgregarFormato.Click += clickAgregarFormato;
+            // 
             // PruebaForm
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnAgregarFormato);
             Controls.Add(btnListo);
             Controls.Add(btnVolver);
             Controls.Add(observaciones);
@@ -183,5 +196,6 @@
         private Label observaciones;
         private Button btnVolver;
         private Button btnListo;
+        private Button btnAgregarFormato;
     }
 }

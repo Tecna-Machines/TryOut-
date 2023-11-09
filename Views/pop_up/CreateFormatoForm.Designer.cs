@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "CreateFormatoForm";
+            SuspendLayout();
+            // 
+            // CreateFormatoForm
+            // 
+            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(331, 450);
+            Name = "CreateFormatoForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "CreateFormatoForm";
+            ResumeLayout(false);
         }
 
         #endregion

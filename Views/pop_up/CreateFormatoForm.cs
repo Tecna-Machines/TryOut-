@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Views.Utilities;
 
 namespace Views.pop_up
 {
@@ -15,6 +16,8 @@ namespace Views.pop_up
         public CreateFormatoForm()
         {
             InitializeComponent();
+            FormUtility.setBasicStyles(this);
+
         }
     }
 }
