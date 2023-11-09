@@ -2,16 +2,11 @@
 using Applicacion.Interfaces.IRepositories;
 using Applicacion.Interfaces.IServices;
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Applicacion.UseCase.Maquinas
 {
     public class MaquinaService : IMaquinaService
-    {   
+    {
         private readonly IMaquinaRepository _repository;
 
         public MaquinaService(IMaquinaRepository repository)
@@ -21,6 +16,16 @@ namespace Applicacion.UseCase.Maquinas
 
         public async Task<MaquinaDTO> CrearNuevaMaquina(MaquinaDTO maquina)
         {
+            MaquinaDTO? foundMachine = new MaquinaDTO(); ;
+
+            if (maquina.NumMaquina != null)
+            {
+                foundMachine = await ConsultarMaquinaById(maquina.NumMaquina);
+            }
+
+
+            if (foundMachine != null) { throw new InvalidOperationException(); };
+
             var nuevaMaquina = new Maquina
             {
                 NumMaquina = maquina.NumMaquina,
@@ -36,9 +41,9 @@ namespace Applicacion.UseCase.Maquinas
 
         public async Task<MaquinaDTO?> ConsultarMaquinaById(string NumMaquina)
         {
-            var found =  await _repository.GetMaquinaByNum(NumMaquina);
+            var found = await _repository.GetMaquinaByNum(NumMaquina);
 
-            if(found != null)
+            if (found != null)
             {
                 return new MaquinaDTO
                 {
@@ -47,6 +52,27 @@ namespace Applicacion.UseCase.Maquinas
             }
 
             return null;
+        }
+
+        public async Task<IEnumerable<MaquinaDTO>> ConseguirTodasLasMaquinas()
+        {
+            var machinesMapear =  await _repository.GetMaquinas();
+            List<MaquinaDTO> maquinaDTOs = new List<MaquinaDTO>();
+
+
+            foreach (var maquina in machinesMapear)
+            {
+                var nuevaMauqina = new MaquinaDTO
+                {
+                    NumMaquina = maquina.NumMaquina,
+                    Descripcion = maquina.Descripcion,
+                    Nombre = maquina.Nombre
+                };
+
+                maquinaDTOs.Add(nuevaMauqina);
+            }
+
+            return maquinaDTOs;
         }
     }
 }

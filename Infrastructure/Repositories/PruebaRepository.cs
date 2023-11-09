@@ -2,15 +2,10 @@
 using Domain.Entities;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
-    public class PruebaRepository : IPruebaRepository , IDisposable
+    public class PruebaRepository : IPruebaRepository, IDisposable
     {
         private readonly TryOutContext context;
         private bool disposed = false;

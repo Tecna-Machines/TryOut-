@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Infrastructure.Config;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Infrastructure.Persistence
 {
@@ -18,6 +19,11 @@ namespace Infrastructure.Persistence
         {
         }
 
+        // Agrega este método para asegurarte de que DbSet implemente IDbAsyncEnumerable
+        public override async ValueTask<EntityEntry<TEntity>> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default)
+        {
+            return await base.AddAsync(entity, cancellationToken);
+        }
 
         public DbSet<Formato> Formatos { get; set; }
         public DbSet<Maquina> Maquinas { get; set; }

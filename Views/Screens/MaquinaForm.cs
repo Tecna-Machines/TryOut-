@@ -1,16 +1,5 @@
 ﻿using Applicacion.DTO;
-using Applicacion.Interfaces.IRepositories;
 using Applicacion.Interfaces.IServices;
-using Applicacion.UseCase.Maquinas;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Views.Utilities;
 
 namespace Views
@@ -31,19 +20,11 @@ namespace Views
         {
             var nombreMaquina = this.name.Text;
             var descripcionMaquina = this.descripcion.Text;
-            var numMaquina = this.model.Text; 
+            var numMaquina = this.model.Text;
 
             if (nombreMaquina.Length < 3 || numMaquina.Length < 1)
             {
                 MessageBox.Show("revisa bien los datos ingresados..");
-                return;
-            }
-
-            var foundMachine = await _service.ConsultarMaquinaById(numMaquina);
-
-            if (foundMachine != null)
-            {
-                MessageBox.Show("esa maquina ya existe");
                 return;
             }
 
@@ -61,6 +42,10 @@ namespace Views
 
                 TextBoxUtility.LimpiarTextBox(this.name, this.descripcion, this.model);
 
+            }
+            catch (InvalidOperationException exce)
+            {
+                MessageBox.Show("esta maquina ya existe");
             }
             catch (Exception ex)
             {

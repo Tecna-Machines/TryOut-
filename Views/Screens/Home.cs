@@ -21,7 +21,7 @@ namespace Views
 
         private void clickBtnCrearMaquina(object sender, EventArgs e)
         {
-            Form maquinaForm = new MaquinaForm(_service,this);
+            Form maquinaForm = new MaquinaForm(_service, this);
             maquinaForm.Show();
 
             this.Hide();
@@ -29,7 +29,7 @@ namespace Views
 
         private void clickBtnIniciarPrueba(object sender, EventArgs e)
         {
-            Form pruebaForm = new PruebaForm();
+            Form pruebaForm = new PruebaForm(_service,this);
             pruebaForm.Show();
             this.Hide();
         }

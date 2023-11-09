@@ -1,11 +1,11 @@
 ﻿using Applicacion.Interfaces.IRepositories;
 using Domain.Entities;
 using Infrastructure.Persistence;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
-    public class MaquinaRepository : IMaquinaRepository , IDisposable
+    public class MaquinaRepository : IMaquinaRepository, IDisposable
     {
         private readonly TryOutContext context;
         private bool disposed = false;
@@ -19,7 +19,8 @@ namespace Infrastructure.Repositories
         {
             var foundMachine = await context.Maquinas.FindAsync(NumMaquina);
 
-            if(foundMachine != null) { 
+            if (foundMachine != null)
+            {
                 context.Maquinas.Remove(foundMachine);
                 return foundMachine;
             }
@@ -34,7 +35,7 @@ namespace Infrastructure.Repositories
 
         public async Task<IEnumerable<Maquina>> GetMaquinas()
         {
-            return await context.Maquinas.ToListAsync();
+            return  await context.Maquinas.ToListAsync();
         }
 
         public async Task<Maquina> InsertMaquina(Maquina Maquina)
@@ -47,7 +48,7 @@ namespace Infrastructure.Repositories
         {
             context.Entry(Maquina).State = (Microsoft.EntityFrameworkCore.EntityState)EntityState.Modified;
             await context.SaveChangesAsync();
-            return  Maquina;
+            return Maquina;
         }
 
         //liberacion de recursos
