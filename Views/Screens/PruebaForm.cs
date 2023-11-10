@@ -13,7 +13,7 @@ namespace Views.Screens
         {
             InitializeComponent();
             FormUtility.setBasicStyles(this);
-            ButtonUtility.ConfigurationButtons(this.btnListo, this.btnVolver,this.btnAgregarFormato);
+            ButtonUtility.ConfigurationButtons(this.btnListo, this.btnVolver, this.btnAgregarFormato);
             _service = service;
 
             this.addOptionListBox();

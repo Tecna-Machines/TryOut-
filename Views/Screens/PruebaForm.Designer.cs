@@ -71,6 +71,7 @@
             // 
             // optionsMachineSelect
             // 
+            optionsMachineSelect.DropDownStyle = ComboBoxStyle.DropDownList;
             optionsMachineSelect.FlatStyle = FlatStyle.System;
             optionsMachineSelect.FormattingEnabled = true;
             optionsMachineSelect.Location = new Point(118, 97);
